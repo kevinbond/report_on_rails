@@ -72,6 +72,20 @@ That will create everything that you need. You can test this out in your termina
 
 This will create a new record and saves it to the DB automatically because of .create. You can use .new, however, you will need to run @report.save to save it to the DB.
 
+Now to view this, you will need to create an index.html.erb file in views in the calls directory(or whatever you named your controller). You can simply copy and paste what I created. Then if you run the following in the termianl:
+
+<pre><code>rails server</pre></code>
+
+You will be able to enter in the URL that is produced with the route set to calls(or whatever you named your controller) and the GET called by the browser will print the DB contents to the browser. You will go to the following URL to view it:
+
+<pre><code>http://0.0.0.0:3000/calls</pre></code>
+
+You will be able to see a delete link that will destroy a record if clicked.
+
+To note, you will need to create the GET route. To do this, go to routes.rb and enter the following in:
+
+<pre><code>resources :calls</pre></code>
+
 #Heroku setup
 ***
 Once you app is completely setup and working, it is relatively simple to launch it to Heroku. You will need to setup an account there by going to https://id.heroku.com/signup
