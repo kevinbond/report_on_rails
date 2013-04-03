@@ -36,17 +36,17 @@ When you start to build your app, there are a few things to note. All of the Tro
 
 The render :json is what will send the JSON back to Tropo and will skip the View completely
 
-Another important factor you will need to implement is the routing system for your app. If you controller is called "Tropo", for example, all of your controllers will be methods with in that class. To call these methods, you will need to update your routes.rb file in the config folder. So if you want to call the sendSMS method in that controller, you will need to add the following in the routes.rb file:
+Another important factor you will need to implement is the routing system for your app. If your controller is called "Tropo", for example, all of your controllers will be methods within that class. To call these methods, you will need to update your routes.rb file in the config folder. So if you want to call the sendSMS method in that controller, you will need to add the following in the routes.rb file:
 
 <pre><code>post 'tropo/sendSMS' => 'tropo#sendSMS'</code></pre>
 
 This will hit the necessary Controller file (tropo) and send the thread to the method that is called (sendSMS).
 
-Within you Tropo app, you can just send the thread to a new method in the controll by using the on event. So if I have a questions that I want to ask the user, I can send the Tropo thread to tropo/question. Once that method asked the question, you will use the on event(which is a Tropo method) to send the thread to tropo/answer as follows:
+Within your Tropo app, you can just send the thread to a new method in the controll by using the on event. So if I have a questions that I want to ask the user, I can send the Tropo thread to tropo/question. Once that method asked the question, you will use the on event(which is a Tropo method) to send the thread to tropo/answer as follows:
 
 <pre><code>t.on :event => 'continue', :next =>"answer"</code></pre>
 
-As you can see, you do not have to include the Controller name, just the route. However, you will need to specify the entire route in your routes.rb class as shown below:
+As you can see, you do not have to include the Controller name, just the route in the on event. However, you will need to specify the entire route in your routes.rb class as shown below:
 
 <pre><code>post 'tropo/answer' => 'tropo#answer'</code></pre>
     
