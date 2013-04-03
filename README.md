@@ -66,8 +66,7 @@ The final step is to migrate the DB. You can run the following code to do this:
     
 That will create everything that you need. You can test this out in your terminal through your rails console. Run the following commands in your terminal to create your first report:
     
-<pre><code>
-rails c    
+<pre><code>rails c    
 @report = Call.create(:direction => "in", :duration => 25, :from => "14075551000", :to => "14075552000", :network => "TEXT", :start_time => "thursday 1pm", :success => "true")    
 @report
 </code></pre>
