@@ -9,7 +9,7 @@ class CallsController < ApplicationController
   def destroy
     @record = Call.find(params[:id])
     @record.destroy
-    redirect_to "http://web1.tunnlr.com:11874/calls", :notice => "This CDR record has been deleted successfully!"
+    redirect_to "http://mighty-crag-3312.herokuapp.com/calls", :notice => "This CDR record has been deleted successfully!"
   end
 
   #This is the start of the app
@@ -19,8 +19,7 @@ class CallsController < ApplicationController
 
     #This will be hit when a request is sent to Tropo to make a call
     if v[:session][:parameters]
-      
-      puts "*************#{v[:session][:parameters]}"
+
       to = v[:session][:parameters][:num]
       #Create record
       @c = Call.create(:start_time => Time.now.utc.strftime('%a %b %d %H:%M:%S +0000 %Y'), :to => to, :from => "14071234321", :success => "true", :duration => Time.now.utc.seconds_since_midnight.to_i, :network => "VOICE", :direction => "out")
