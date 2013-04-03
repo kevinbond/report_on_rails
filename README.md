@@ -2,13 +2,13 @@
 ***
 This is a Ruby on Rails Tropo app which tracks the call progress and returns the following data to a database:
 
-*Time of the call
-*To number
-*From number
-*Network
-*Call success
-*Duration of the call
-*Direction(in/out)
+- Time of the call
+- To number
+- From number
+- Network
+- Call success
+- Duration of the call
+- Direction(in/out)
 
 #How to create your app in the terminal
 ***
