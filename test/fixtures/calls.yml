@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  duration: 1
+  direction: MyString
+  to: MyString
+  from: MyString
+  start_time: MyString
+  network: MyString
+  success: MyString
+
+two:
+  duration: 1
+  direction: MyString
+  to: MyString
+  from: MyString
+  start_time: MyString
+  network: MyString
+  success: MyString

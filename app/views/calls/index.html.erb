@@ -1,0 +1,9 @@
+<center><h1>Reports</h1>
+
+<table cellpadding="5" cellspacing="5" border="5" class="db-table">
+    <tr><th>TransactionID</th><th>Start Time</th><th>To</th><th>From</th><th>Network</th><th>Success</th><th>Duration</th><th>Direction</th><th>Remove</th></tr>
+    <% @cdrs.each do |r| %>
+    <tr><th><%= r.id %></th><th><%= r.start_time %></th><th><%= r.to %></th><th><%= r.from %></th><th><%= r.network %></th><th><%= r.success %></th><th><%= r.duration %></th><th><%= r.direction %></th><th><%= link_to "Delete", r, :confirm => "Are you sure you want to delete this CDR?", :method => :delete %></tr>
+    <% end %>
+</table>
+</center>
