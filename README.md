@@ -66,10 +66,37 @@ The final step is to migrate the DB. You can run the following code to do this:
     
 That will create everything that you need. You can test this out in your terminal through your rails console. Run the following commands in your terminal to create your first report:
     
-<pre><code>rails c    
-@report = Call.create(:direction => "in", :duration => 25, :from => "14075551000", :to => "14075552000", :network => "TEXT", :start_time => "thursday 1pm", :success => "true")    
-@report
-</code></pre>
+<pre><code>rails c</code></pre>
+<pre><code>@report = Call.create(:direction => "in", :duration => 25, :from => "14075551000", :to => "14075552000", :network => "TEXT", :start_time => "thursday 1pm", :success => "true")    </code></pre>
+<pre><code>@report</code></pre>
 
 This will create a new record and saves it to the DB automatically because of .create. You can use .new, however, you will need to run @report.save to save it to the DB.
 
+#Heroku setup
+***
+Once you app is completely setup and working, it is relatively simple to launch it to Heroku. You will need to setup an account there by going to https://id.heroku.com/signup
+
+This is where you will need to change the sqlite3 gem to pg. Access your gem file, change the gem and then run the following in the terminal:
+<pre><code>bundle install</pre></code>
+
+Once you have created your account and reinstalled the bundles, run the following commands in the terminal:
+<pre><code>heroku login</pre></code>
+<pre><code>git init</pre></code>
+<pre><code>git add .</pre></code>
+<pre><code>git commit -m "init"</pre></code>
+<pre><code>heroku create</pre></code>
+<pre><code>git push heroku master</pre></code>
+    
+If you run into an error running the last command, then you will need to add your public key to Heroku. You can do that by running the following command:
+
+<pre><code>heroku keys:add ~/.ssh/id_rsa.pub</pre></code>
+
+We need to ensure we have one dyno running the web process type which can be done with the following command:
+
+<pre><code>heroku ps:scale web=1</pre></code>
+
+Finally, you can see if your app is running on Heroku successfully by running this final command:
+
+<pre><code>heroku open</pre></code>
+
+If all is well, then you can use that link that heroku open gave to you with the beginning routes appened to it as the URL that powers your Tropo app in Tropo. Now you are running Tropo using Ruby on Rails! Congrats!
